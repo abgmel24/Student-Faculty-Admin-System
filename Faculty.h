@@ -3,14 +3,15 @@
 
 #include <iostream>
 #include <string>
-#include "TDoublyLinkedList.h"
+#include "TSingleLinkedList.h"
 
 using namespace std;
 
 class Faculty {
     public:
         Faculty();
-        Faculty(unsigned int f, string n, string l, string d);
+        Faculty(int id);
+        Faculty(int f, string n, string l);
         ~Faculty();
 
         bool operator==(Faculty *f);
@@ -18,18 +19,21 @@ class Faculty {
         bool operator>(Faculty *f);
         bool operator<(Faculty *f);
 
+        void toFile(ostream& os);
+        void addStudent(int i);
+        int removeStudent(int i);
     
     private:
-        unsigned int facultyID;
+        int facultyID;
         string name;
         string level;
-        TDoublyLinkedList<unsigned int> *listOfStudents;
+        TSingleLinkedList<int>* listOfStudents;
 
     public:
-        unsigned int getFacultyID();
+        int getFacultyID();
         string getName();
         string getLevel();
-        TDoublyLinkedList<unsigned int>* getListOfStudents();
+        TSingleLinkedList<int>* getListOfStudents();
 };
 
 

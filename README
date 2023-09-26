@@ -1,0 +1,33 @@
+Author: Abhi Gudimella
+Email: gudimella@chapman.edu
+Class: CPSC 350-04 Spring 2023
+Assignment: Assignment 5
+
+References:
+    https://www.tutorialspoint.com/cplusplus/relational_operators_overloading.htm
+    https://stackoverflow.com/questions/347358/inheriting-constructors
+    https://learn.zybooks.com/zybook/CHAPMANCPSC350Spring2023
+
+Source files:
+    Configuration.h
+    Configuration.cpp
+
+    TreeNode.h
+    BST.h
+    LazyBST.h
+
+    Faculty.h
+    Faculty.cpp
+
+    Student.h
+    Student.cpp
+
+    TListNode.h 
+    TSingleLinkedList.h
+
+    main.cpp
+
+
+Terminal commands to run the program (with the gnu c++ compiler installed):
+    g++ *.cpp -o main
+    ./main

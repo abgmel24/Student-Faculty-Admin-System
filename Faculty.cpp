@@ -1,11 +1,18 @@
 #include "Faculty.h"
 
-Faculty::Faculty() {};
-Faculty::Faculty(unsigned int f, string n, string l, string d) {
+Faculty::Faculty() {
+    facultyID = -1;
+};
+
+Faculty::Faculty(int id) {
+    facultyID = id;
+}
+
+Faculty::Faculty(int f, string n, string l) {
     facultyID = f;
     name = n;
     level = l;
-    listOfStudents = new TDoublyLinkedList<unsigned int>();
+    listOfStudents = new TSingleLinkedList<int>();
 }
 
 Faculty::~Faculty() {
@@ -25,7 +32,23 @@ bool Faculty::operator<(Faculty *f) {
     return true;
 }
 
-unsigned int Faculty::getFacultyID() {
+void Faculty::toFile(ostream &os) {
+    os << "ID " << facultyID << ", " << "Name: " << name << ", Level: " << level << endl << "      List of Student IDs: ";
+    listOfStudents->toFile(os);
+    cout << endl;
+}
+
+void Faculty::addStudent(int i) {
+    listOfStudents->insertFront(i);
+}
+
+int Faculty::removeStudent(int i) {
+    return listOfStudents->remove(i);
+};
+
+
+//getters
+int Faculty::getFacultyID() {
     return facultyID;
 }
 
@@ -37,10 +60,6 @@ string Faculty::getLevel() {
     return level;
 }
 
-TDoublyLinkedList<unsigned int>* Faculty::getListOfStudents() {
+TSingleLinkedList<int>* Faculty::getListOfStudents() {
     return listOfStudents;
-}
-
-int main() {
-    return 0;
 }
